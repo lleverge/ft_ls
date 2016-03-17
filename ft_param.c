@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 11:22:53 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 12:12:20 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,20 @@ void			ft_sort_tab(char **tab)
 static t_elem	*ft_manage_files(char **tab, t_elem *flist)
 {
 	int		i;
+    t_elem  *tmp;
+    t_stat  stat;
 
+    tmp = NULL;
+    if (!(tmp = (t_elem *)malloc(sizeof(t_elem))))
+        exit(1);
 	i = 0;
 	while (tab[i] && tab[i] != 0)
 	{
-		if (read_param(tab[i]) == 0)
+		if (lstat(tab[i], &stat) <= 0)
+			get_infos(tab[i], tmp, stat);
+		if (tmp->perm[0] == 'd' && tmp->perm[1] == '-')
+			ft_error_rights(tab[i]);
+		else if (read_param(tab[i]) == 0)
 			flist = info_in_list(flist, tab[i], tab[i]);
 		i++;
 	}
