@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 13:24:16 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 16:46:27 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 11:21:23 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,16 @@ void		ft_display_rep(t_elem *list, char *r_name, t_opt *opt, t_pad *pad)
 		list = ft_sort_rev(list);
 	ft_putstr(remove_slash(r_name));
 	ft_putstr(":\n");
-	if (opt->l == 1)
-	{
-		ft_putstr("total ");
-		ft_putnbr(count_blocks(list, opt));
-		ft_putchar('\n');
-		ft_padding(&list, pad);
-	}
+    if (opt->l == 1)
+    {
+        ft_putstr("total ");
+        ft_putnbr(count_blocks(list, opt));
+        ft_putchar('\n');
+        ft_padding(&list, pad);
+    }
 	display_l(list, opt);
+	if (list->next)
+		ft_putchar('\n');
 	if (opt->rec == 1)
 		ft_recursive(list, opt, ft_count_dir(list));
 }
@@ -115,7 +117,11 @@ int			main(int argc, char **argv)
 			ft_detect_opt(argv[i], options);
 	}
 	tab = arg_in_tab(argc, argv);
+	if (!tab[0])
+	{
+		tab[0] = ".";
+		tab[1] = 0;
+	}
 	ft_list(tab, options);
-	//free_tab(tab);
 	return (0);
 }

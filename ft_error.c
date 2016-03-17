@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 15:55:43 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 11:02:21 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,14 @@ void		opt_error(char *s)
 
 void		no_file_dir(char *fname)
 {
-	ft_putstr("ft_ls: ");
+	ft_putstr_fd("ft_ls: ", 2);
 	perror(remove_slash(fname));
 	return ;
+}
+
+void		ft_error_rights(char *path)
+{
+	ft_putstr_fd("ft_ls: ", 2);
+	ft_putstr_fd(path, 2);
+	ft_putendl_fd(": Permission denied", 2);
 }
