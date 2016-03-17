@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 14:12:50 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:10:23 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:27:10 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void		display_l(t_elem *list, t_opt *opt, t_pad *pad)
 {
 	if (!list)
 		return ;
-	count_blocks(&list, opt);
 	while (list)
 	{
 		if (opt->a == 1)

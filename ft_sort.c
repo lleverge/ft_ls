@@ -6,24 +6,11 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 09:38:40 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 14:48:16 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:33:27 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-/*int						count_elem(t_elem *list)
-{
-	int	count;
-
-	count = 0;
-	while (list)
-	{
-		list = list->next;
-		count++;
-	}
-	return (count);
-	}*/
 
 t_elem					*ft_elem_swap(t_elem *elem1, t_elem *elem2)
 {

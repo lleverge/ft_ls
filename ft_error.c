@@ -6,27 +6,11 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 17:53:44 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:42:42 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-int			count_error(char **tab)
-{
-	int		i;
-	int		count;
-
-	i = 0;
-	count = 0;
-	while (tab[i] != 0)
-	{
-		if (read_param(tab[i]) == -1)
-			count++;
-		i++;
-	}
-	return (count);
-}
 
 void		error_in_tab(char **tab, char **error_tab)
 {
@@ -44,7 +28,7 @@ void		error_in_tab(char **tab, char **error_tab)
 			j++;
 		}
 		else
-			i++; 
+			i++;
 	}
 	error_tab[j] = NULL;
 }
@@ -72,7 +56,7 @@ void		ft_manage_error(char **tab)
 	}
 }
 
-void			ft_check_void_av(void)
+void		ft_check_void_av(void)
 {
 	ft_putendl_fd("ft_ls: fts_open: No such file or directory", 2);
 	exit(0);
@@ -84,13 +68,6 @@ void		opt_error(char *s)
 	ft_putendl_fd(s, 2);
 	ft_putstr_fd("usage: ft_ls [-Ralrt] [file ...]\n", 2);
 	exit(1);
-}
-
-void		no_file_dir(char *fname)
-{
-	ft_putstr_fd("ft_ls: ", 2);
-	perror(remove_slash(fname));
-	return ;
 }
 
 void		ft_error_rights(char *path)

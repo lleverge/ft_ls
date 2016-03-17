@@ -6,11 +6,21 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 17:11:05 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 16:37:43 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:20:11 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int				ft_count_tab(char **tab)
+{
+	int		i;
+
+	i = 0;
+	while (tab[i] != 0)
+		i++;
+	return (i);
+}
 
 int				ft_count_dir(t_elem *elem)
 {

@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 13:24:16 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 17:57:45 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:40:06 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_elem		*info_in_list(t_elem *start, char *fname, char *path)
 	return (start);
 }
 
-void		ft_display_rep(t_elem *list, char *r_name, t_opt *opt, t_pad *pad)
+void		ft_display_rep(t_elem *list, t_opt *opt, t_pad *pad)
 {
 	if (!list)
 		return ;
@@ -52,12 +52,10 @@ void		ft_display_rep(t_elem *list, char *r_name, t_opt *opt, t_pad *pad)
 	if (opt->r == 1)
 		list = ft_sort_rev(list);
 	if (list->perm[0] == 'd' && list->perm[1] == '-')
-    {
-        ft_error_rights(list->name);
-        return ;
-    }
-	ft_putstr(remove_slash(r_name));
-	ft_putstr(":\n");
+	{
+		ft_error_rights(list->name);
+		return ;
+	}
 	display_l(list, opt, pad);
 	ft_putchar('\n');
 	if (opt->rec == 1)

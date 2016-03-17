@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:25:02 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:13:24 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:38:55 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct		s_elem
 
 typedef struct stat	t_stat;
 
+void				ft_repname(char *name, int nb);
+int					ft_count_tab(char **tab);
 void				ft_check_void_av(void);
 char				**sort_arg(char **tab, t_opt *opt);
 char				**rev_tab(char **tab);
@@ -122,7 +124,7 @@ t_elem				*ft_elem_swap(t_elem *elem1, t_elem *elem2);
 void				display_l(t_elem *list, t_opt *opt, t_pad *pad);
 void				ft_display_file(t_elem *elem, t_opt *options,
 							t_pad *pad);
-void				ft_display_rep(t_elem *elem, char *rep_name, t_opt *options,
-									t_pad *pad);
+void				ft_display_rep(t_elem *elem, t_opt *options, t_pad *pad);
 void				display_error(char **tab);
+
 #endif

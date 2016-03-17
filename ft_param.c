@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 17:09:43 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:44:45 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void			ft_sort_tab(char **tab)
 static t_elem	*ft_manage_files(char **tab, t_elem *flist)
 {
 	int		i;
-    t_elem  *tmp;
-    t_stat  stat;
+	t_elem	*tmp;
+	t_stat	stat;
 
-    tmp = NULL;
+	tmp = NULL;
 	i = 0;
 	while (tab[i] && tab[i] != 0)
 	{
@@ -94,7 +94,10 @@ static void		ft_manage_rep(char **tab, t_elem *rlist, t_opt *opt, t_pad *pad)
 	while (rep_tab[i] != NULL)
 	{
 		rlist = ft_create_list(rlist, ft_add_slash(rep_tab[i]));
-		ft_display_rep(rlist, rep_tab[i], opt, pad);
+		ft_repname(rep_tab[i], ft_count_tab(tab));
+		if (opt->l == 1)
+			count_blocks(&rlist, opt);
+		ft_display_rep(rlist, opt, pad);
 		free_list(&rlist);
 		i++;
 	}
@@ -115,8 +118,6 @@ void			ft_list(char **tab, t_opt *opt)
 	rep_list = NULL;
 	if (opt->rec == 0)
 		ft_manage_error(tab);
-	else
-		display_error(tab);
 	file_list = ft_manage_files(tab, file_list);
 	if (file_list)
 	{

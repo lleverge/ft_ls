@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 15:56:51 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 17:15:21 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:45:34 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char		**sort_arg(char **tab, t_opt *opt)
 		tab = rev_tab(tab);
 	}
 	else if (opt->t == 1)
-        tab = arg_time(tab);
+		tab = arg_time(tab);
 	else if (opt->r == 1)
 		tab = rev_tab(tab);
 	return (tab);
@@ -59,7 +59,7 @@ char		**arg_swap(char **tab, int j)
 	return (tab);
 }
 
-char 		**arg_time(char **tab)
+char		**arg_time(char **tab)
 {
 	int		i;
 	int		j;

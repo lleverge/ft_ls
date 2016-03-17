@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 17:02:34 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 13:27:42 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:43:51 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,4 @@ char		*remove_slash(char *name)
 	if (name[(ft_strlen(name) - 1)] == '/')
 		name[(ft_strlen(name) - 1)] = '\0';
 	return (name);
-}
-
-void		display_error(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i] && tab[i] != 0)
-	{
-		if (read_param(tab[i]) == -1)
-			no_file_dir(tab[i]);
-		i++;
-	}
 }
