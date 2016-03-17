@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 14:12:50 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 15:39:21 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:10:23 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@ void		display_l(t_elem *list, t_opt *opt, t_pad *pad)
 {
 	if (!list)
 		return ;
+	count_blocks(&list, opt);
 	while (list)
 	{
-		display_count(list, opt, pad);
 		if (opt->a == 1)
 		{
+			ft_padding(&list, pad);
 			print_infos(list, opt);
 			ft_putchar('\n');
 		}
 		else
 		{
-			display_count(list, opt, pad);
 			if (list->name[0] != '.')
 			{
+				ft_padding(&list, pad);
 				print_infos(list, opt);
 				ft_putchar('\n');
 			}

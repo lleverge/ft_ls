@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 15:34:00 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:53:44 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ void		ft_manage_error(char **tab)
 			perror(remove_slash(error_tab[i]));
 		i++;
 	}
+}
+
+void			ft_check_void_av(void)
+{
+	ft_putendl_fd("ft_ls: fts_open: No such file or directory", 2);
+	exit(0);
 }
 
 void		opt_error(char *s)

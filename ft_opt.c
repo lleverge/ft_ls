@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 14:12:00 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 13:20:49 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:56:43 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	ft_detect_opt(char *arg, t_opt *options)
 	i = 0;
 	while (arg[++i] != '\0')
 	{
-		if (arg[i] == 't')
+		if (!(ft_strcmp("", arg)))
+			ft_check_void_av();
+		else if (arg[i] == 't')
 			options->t = 1;
 		else if (arg[i] == 'a')
 			options->a = 1;

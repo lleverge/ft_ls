@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 18:07:03 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 14:58:12 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 18:08:29 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,34 @@ void		print_infos(t_elem *list, t_opt *options)
 		ft_put_link(list->path);
 }
 
+void	count_blocks(t_elem **list, t_opt *opt)
+{
+	t_elem	*head;
+	int		res;
+
+	res = 0;
+	head = *list;
+	if (opt->a)
+	{
+		while (*list)
+		{
+			res += (*list)->blocks;
+			*list = (*list)->next;
+		}
+	}
+	else
+		while (*list)
+		{
+			if (ft_strncmp((*list)->name, ".", 1) != 0)
+				res += (*list)->blocks;
+			*list = (*list)->next;
+		}
+	ft_putstr("total ");
+	ft_putnbr(res);
+	ft_putchar('\n');
+	*list = head;
+}
+/*
 int			count_blocks(t_elem *list, t_opt *options)
 {
 	int	count;
@@ -119,4 +147,4 @@ int			count_blocks(t_elem *list, t_opt *options)
 		}
 	}
 	return (count);
-}
+	}*/

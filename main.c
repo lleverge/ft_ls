@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 13:24:16 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 15:26:38 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:57:45 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int			main(int argc, char **argv)
 	init_opt(options);
 	while (++i < argc)
 	{
-		if (argv[i][0] == '-')
+		if (argv[i][0] == '-' || !(ft_strcmp("", argv[i])))
 			ft_detect_opt(argv[i], options);
 	}
 	tab = arg_in_tab(argc, argv);
