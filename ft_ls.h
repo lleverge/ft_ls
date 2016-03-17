@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:25:02 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 13:27:53 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 16:41:38 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct		s_elem
 {
 	char			*path;
 	char			*name;
-	long long		modif_last;
+	int				modif_last;
 	char			*create;
 	int				blocks;
 	char			*perm;
@@ -71,6 +71,9 @@ typedef struct		s_elem
 
 typedef struct stat	t_stat;
 
+char				**arg_swap(char **tab, int j);
+void				arg_time(char **tab);
+void				display_count(t_elem *list, t_opt *opt, t_pad *pad);
 void				change_tab(char **tab, int index);
 void				ft_error_rights(char *path);
 void				rep_in_tab(char **tab, char **rep_tab);
@@ -114,7 +117,7 @@ char				*ft_perm(t_stat *stat);
 t_elem				*ft_create_list(t_elem *list, char *path);
 void				get_infos(char *fname, t_elem *tmp, t_stat stat);
 t_elem				*ft_elem_swap(t_elem *elem1, t_elem *elem2);
-void				display_l(t_elem *list, t_opt *opt);
+void				display_l(t_elem *list, t_opt *opt, t_pad *pad);
 void				ft_display_file(t_elem *elem, t_opt *options,
 							t_pad *pad);
 void				ft_display_rep(t_elem *elem, char *rep_name, t_opt *options,

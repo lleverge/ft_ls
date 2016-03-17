@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 18:07:03 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 16:02:49 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 14:58:12 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		get_infos(char *fname, t_elem *tmp, t_stat stat)
 	if (!tmp)
 		return ;
 	tmp->name = ft_strdup(fname);
-	tmp->modif_last = (long long)ft_get_time(&stat.st_mtime);
+	tmp->modif_last = (int)(stat.st_mtime);
 	tmp->create = ft_get_time(&stat.st_mtime);
 	tmp->blocks = stat.st_blocks;
 	tmp->perm = ft_perm(&stat);

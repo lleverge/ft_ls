@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 13:24:16 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 12:04:30 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 15:26:38 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,8 @@ void		ft_display_rep(t_elem *list, char *r_name, t_opt *opt, t_pad *pad)
     }
 	ft_putstr(remove_slash(r_name));
 	ft_putstr(":\n");
-    if (opt->l == 1)
-    {
-        ft_putstr("total ");
-        ft_putnbr(count_blocks(list, opt));
-        ft_putchar('\n');
-        ft_padding(&list, pad);
-    }
-	display_l(list, opt);
+	display_l(list, opt, pad);
+	ft_putchar('\n');
 	if (opt->rec == 1)
 		ft_recursive(list, opt, ft_count_dir(list));
 }
@@ -80,9 +74,7 @@ void		ft_display_file(t_elem *list, t_opt *options, t_pad *pad)
 	list = ft_index_list(list);
 	if (options->r == 1)
 		list = ft_sort_rev(list);
-	if (options->l == 1)
-		ft_padding(&list, pad);
-	display_l(list, options);
+	display_l(list, options, pad);
 }
 
 t_elem		*ft_create_list(t_elem *list, char *path)

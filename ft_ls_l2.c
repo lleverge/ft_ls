@@ -6,18 +6,19 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 14:12:50 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 11:21:55 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 15:39:21 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		display_l(t_elem *list, t_opt *opt)
+void		display_l(t_elem *list, t_opt *opt, t_pad *pad)
 {
 	if (!list)
 		return ;
 	while (list)
 	{
+		display_count(list, opt, pad);
 		if (opt->a == 1)
 		{
 			print_infos(list, opt);
@@ -25,6 +26,7 @@ void		display_l(t_elem *list, t_opt *opt)
 		}
 		else
 		{
+			display_count(list, opt, pad);
 			if (list->name[0] != '.')
 			{
 				print_infos(list, opt);

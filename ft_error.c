@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 14:35:26 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 15:34:00 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void		ft_manage_error(char **tab)
 	ft_sort_tab(error_tab);
 	while (error_tab[i] != 0)
 	{
-		ft_putstr("ft_ls: ");
-		perror(remove_slash(error_tab[i]));
+		if (read_param(error_tab[i]) == -1)
+			perror(remove_slash(error_tab[i]));
 		i++;
 	}
 }
@@ -92,4 +92,5 @@ void		ft_error_rights(char *path)
 	ft_putstr_fd("ft_ls: ", 2);
 	ft_putstr_fd(path, 2);
 	ft_putendl_fd(": Permission denied", 2);
+	ft_putchar('\n');
 }
