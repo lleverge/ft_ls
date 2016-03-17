@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:25:02 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 11:21:02 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 13:27:53 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct		s_elem
 
 typedef struct stat	t_stat;
 
+void				change_tab(char **tab, int index);
 void				ft_error_rights(char *path);
 void				rep_in_tab(char **tab, char **rep_tab);
 int					count_rep(char **tab);

@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 12:12:20 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 14:20:39 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int				read_param(char *param)
 	DIR		*dir;
 	t_stat	st;
 
-	if (param[0] == '-')
-		return (-2);
-	else if ((dir = opendir(param)))
+	if ((dir = opendir(param)))
 	{
 		closedir(dir);
 		return (1);
@@ -62,11 +60,11 @@ static t_elem	*ft_manage_files(char **tab, t_elem *flist)
     t_stat  stat;
 
     tmp = NULL;
-    if (!(tmp = (t_elem *)malloc(sizeof(t_elem))))
-        exit(1);
 	i = 0;
 	while (tab[i] && tab[i] != 0)
 	{
+		if (!(tmp = (t_elem *)malloc(sizeof(t_elem))))
+			exit(1);
 		if (lstat(tab[i], &stat) <= 0)
 			get_infos(tab[i], tmp, stat);
 		if (tmp->perm[0] == 'd' && tmp->perm[1] == '-')

@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 11:02:21 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 14:35:26 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ void		error_in_tab(char **tab, char **error_tab)
 		if (read_param(tab[i]) == -1)
 		{
 			error_tab[j] = ft_strdup(tab[i]);
+			change_tab(tab, i);
 			j++;
 		}
-		i++;
+		else
+			i++; 
 	}
 	error_tab[j] = NULL;
 }

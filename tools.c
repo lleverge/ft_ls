@@ -6,11 +6,20 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 14:10:24 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 11:55:02 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 13:54:37 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void		change_tab(char **tab, int index)
+{
+	while (tab[index])
+	{
+		tab[index] = tab[index + 1];
+		index++;
+	}
+}
 
 int			count_rep(char **tab)
 {
