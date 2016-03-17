@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:25:02 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 16:41:38 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:12:33 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,10 @@ typedef struct		s_elem
 
 typedef struct stat	t_stat;
 
+char				**sort_arg(char **tab, t_opt *opt);
+char				**rev_tab(char **tab);
 char				**arg_swap(char **tab, int j);
-void				arg_time(char **tab);
+char				**arg_time(char **tab);
 void				display_count(t_elem *list, t_opt *opt, t_pad *pad);
 void				change_tab(char **tab, int index);
 void				ft_error_rights(char *path);

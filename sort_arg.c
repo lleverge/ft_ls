@@ -6,11 +6,48 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 15:56:51 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 16:49:27 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:15:21 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+char		**sort_arg(char **tab, t_opt *opt)
+{
+	ft_sort_tab(tab);
+	if (opt->r && opt->t)
+	{
+		tab = arg_time(tab);
+		tab = rev_tab(tab);
+	}
+	else if (opt->t == 1)
+        tab = arg_time(tab);
+	else if (opt->r == 1)
+		tab = rev_tab(tab);
+	return (tab);
+}
+
+char		**rev_tab(char **tab)
+{
+	int		end;
+	int		i;
+	char	*swap;
+
+	i = 0;
+	end = 0;
+	while (tab[end] != 0)
+		end++;
+	end = end - 1;
+	while (end >= i)
+	{
+		swap = tab[i];
+		tab[i] = tab[end];
+		tab[end] = swap;
+		i++;
+		end--;
+	}
+	return (tab);
+}
 
 char		**arg_swap(char **tab, int j)
 {
@@ -22,7 +59,7 @@ char		**arg_swap(char **tab, int j)
 	return (tab);
 }
 
-void 		arg_time(char **tab)
+char 		**arg_time(char **tab)
 {
 	int		i;
 	int		j;
@@ -46,4 +83,5 @@ void 		arg_time(char **tab)
 		}
 		i++;
 	}
+	return (tab);
 }

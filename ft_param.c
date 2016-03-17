@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 16:12:26 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:09:43 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ static void		ft_manage_rep(char **tab, t_elem *rlist, t_opt *opt, t_pad *pad)
 	if (!(rep_tab = (char **)malloc(sizeof(char *) * (count + 1))))
 		exit(1);
 	rep_in_tab(tab, rep_tab);
-	ft_sort_tab(rep_tab);
-	if (opt->t == 1)
-		arg_time(rep_tab);
+	sort_arg(rep_tab, opt);
 	while (rep_tab[i] != NULL)
 	{
 		rlist = ft_create_list(rlist, ft_add_slash(rep_tab[i]));
