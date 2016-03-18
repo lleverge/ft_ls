@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 14:10:24 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:41:40 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 12:08:00 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int			count_error(char **tab)
 	return (count);
 }
 
-void		ft_repname(char *name, int nb)
+void		ft_repname(char *name, int nb, t_opt *opt)
 {
-	if (nb > 1)
+	if (nb > 1 || opt->rec == 1)
 	{
 		ft_putstr(name);
 		ft_putstr(":\n");
@@ -79,4 +79,24 @@ void		rep_in_tab(char **tab, char **rep_tab)
 		i++;
 	}
 	rep_tab[j] = NULL;
+}
+
+
+char		*ft_strnjoin(char const *s1, char const *s2, size_t len)
+{
+	size_t	i;
+	char	*s;
+
+	i = 0;
+	s = ft_strnew(ft_strlen(s1) + (ft_strlen(s2) * len) + 1);
+	if (s)
+	{
+		ft_strcat(s, s1);
+		while (i < len)
+		{
+			ft_strcat(s, s2);
+			i++;
+		}
+	}
+	return (s);
 }

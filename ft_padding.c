@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 13:04:43 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/13 14:54:23 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 13:05:44 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,26 @@ static char		*ft_add_space(char *s, int max)
 	int		k;
 	char	*tmp;
 
-	i = 0;
+	i = -1;
 	j = max - (int)ft_strlen(s);
-	if (!(tmp = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
+	if (!(tmp = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
 		return (NULL);
 	if (j > 0)
 	{
-		while (i < max)
+		while (++i < max)
 		{
 			while (i < j)
 				tmp[i++] = ' ';
 			k = 0;
 			while (i < max)
 				tmp[i++] = s[k++];
-			i++;
 		}
+		tmp[--i] = '\0';
 		return (tmp);
 	}
 	else
-		return (s);
+		ft_strdel(&tmp);
+	return (s);
 }
 
 static void		ft_set_padding(t_elem **elem, t_pad *pad)

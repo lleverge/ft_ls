@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/18 11:12:50 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 13:15:19 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void		ft_manage_rep(char **tab, t_elem *rlist, t_opt *opt, t_pad *pad)
 	while (rep_tab[i] != NULL)
 	{
 		rlist = ft_create_list(rlist, ft_add_slash(rep_tab[i]));
-		ft_repname(rep_tab[i], ft_count_tab(tab));
+		ft_repname(rep_tab[i], ft_count_tab(tab), opt);
 		if (opt->l == 1)
 			count_blocks(&rlist, opt);
 		ft_display_rep(rlist, opt, pad);
@@ -118,8 +118,7 @@ void			ft_list(char **tab, t_opt *opt)
 		exit(1);
 	file_list = NULL;
 	rep_list = NULL;
-	if (opt->rec == 0)
-		ft_manage_error(tab);
+	ft_manage_error(tab);
 	file_list = ft_manage_files(tab, file_list);
 	if (file_list)
 	{
