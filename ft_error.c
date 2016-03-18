@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:42:42 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 10:56:17 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void		ft_manage_error(char **tab)
 			perror(remove_slash(error_tab[i]));
 		i++;
 	}
+	if (error_tab[0])
+		free_tab(error_tab);
 }
 
 void		ft_check_void_av(void)

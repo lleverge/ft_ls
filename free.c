@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 11:40:39 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/16 11:00:08 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 11:00:27 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void		free_list(t_elem **head)
 	{
 		next = current->next;
 		ft_strdel(&(current->name));
+		ft_strdel(&(current->path));
+		ft_strdel(&(current->create));
 		ft_strdel(&(current->perm));
 		ft_strdel(&(current->user));
 		ft_strdel(&(current->group));

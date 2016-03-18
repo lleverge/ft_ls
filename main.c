@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 13:24:16 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:40:06 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 11:13:13 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 t_elem		*info_in_list(t_elem *start, char *fname, char *path)
 {
-	t_stat		stat;
+	t_stat		st;
 	t_elem		*tmp;
 	t_elem		*voyager;
 
 	tmp = (t_elem *)malloc(sizeof(t_elem));
 	voyager = start;
-	if (lstat(path, &stat) <= 0)
+	if (lstat(path, &st) <= 0)
 	{
-		get_infos(fname, tmp, stat);
-		if (getpwuid(stat.st_uid) != NULL)
-			tmp->user = ft_strdup(getpwuid(stat.st_uid)->pw_name);
+		get_infos(fname, tmp, st);
+		if (getpwuid(st.st_uid) != NULL)
+			tmp->user = ft_strdup(getpwuid(st.st_uid)->pw_name);
 		else
 			tmp->user = ft_strdup("");
-		if (getgrgid(stat.st_gid) != NULL)
-			tmp->group = ft_strdup(getgrgid(stat.st_gid)->gr_name);
+		if (getgrgid(st.st_gid) != NULL)
+			tmp->group = ft_strdup(getgrgid(st.st_gid)->gr_name);
 		else
 			tmp->group = ft_strdup("");
 	}
@@ -116,5 +116,6 @@ int			main(int argc, char **argv)
 		tab[1] = 0;
 	}
 	ft_list(tab, options);
+	free_opt(&options);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 17:11:05 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:20:11 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 11:07:04 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,6 @@ void			ft_recursive(t_elem *elem, t_opt *opt, int nb_dir)
 	}
 	all_dir[i] = NULL;
 	ft_list(all_dir, opt);
+	if (all_dir[0])
+		free_tab(all_dir);
 }

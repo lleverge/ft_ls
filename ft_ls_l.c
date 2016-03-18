@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 18:07:03 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:34:00 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 10:32:11 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		print_infos(t_elem *list, t_opt *options)
 		ft_putchar(' ');
 	}
 	ft_putstr(list->name);
-	if (list->perm[0] == 'l')
+	if (list->perm[0] == 'l' && options->l == 1)
 		ft_put_link(list->path);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:44:45 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 11:12:50 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ static void		ft_manage_rep(char **tab, t_elem *rlist, t_opt *opt, t_pad *pad)
 		free_list(&rlist);
 		i++;
 	}
+	if (rep_tab[0])
+		free_tab(rep_tab);
 }
 
 void			ft_list(char **tab, t_opt *opt)
@@ -126,4 +128,5 @@ void			ft_list(char **tab, t_opt *opt)
 		ft_putchar('\n');
 	}
 	ft_manage_rep(tab, rep_list, opt, pad);
+	free_pad(&pad);
 }
