@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:25:02 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/18 12:07:34 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:39:42 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct		s_elem
 
 typedef struct stat	t_stat;
 
-char				*ft_strnjoin(char const *s1, char const *s2, size_t len);
+int					ft_check_perm(char *name);
 void				ft_repname(char *name, int nb, t_opt *opt);
 int					ft_count_tab(char **tab);
 void				ft_check_void_av(void);
@@ -93,7 +93,6 @@ void				ft_put_css(char c, char *s1, char *s2);
 void				free_tab(char **tab);
 void				ft_list(char **tab, t_opt *opt);
 char				**arg_in_tab(int argc, char **argv);
-char				*ft_lastword(char *s);
 char				*ft_get_time(const long *f_time);
 char				*remove_slash(char *name);
 char				*ft_get_pathname(t_elem *elem, char *path);

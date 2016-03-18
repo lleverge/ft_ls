@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 15:56:51 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:45:34 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:55:31 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ char		**arg_time(char **tab)
 	t_stat	stat;
 
 	i = 0;
-	j = 0;
 	while (tab[i] != 0)
 	{
+		j = 0;
 		while (tab[j + 1] != 0)
 		{
 			lstat(tab[j], &stat);

@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:48:18 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/18 10:56:17 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:23:05 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void		ft_manage_error(char **tab)
 	while (error_tab[i] != 0)
 	{
 		if (read_param(error_tab[i]) == -1)
+		{
+			ft_putstr("ft_ls: ");
 			perror(remove_slash(error_tab[i]));
+		}
 		i++;
 	}
 	if (error_tab[0])

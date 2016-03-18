@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 13:24:16 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/18 13:12:12 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:43:37 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void		ft_display_rep(t_elem *list, t_opt *opt, t_pad *pad)
 {
 	if (!list)
 		return ;
+	if (opt->l == 1)
+		count_blocks(&list, opt);
 	list = ft_sort_ascii(list);
 	if (opt->t == 1)
 		list = ft_sort_time(list);

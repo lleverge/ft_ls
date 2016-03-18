@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 17:19:26 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/18 13:15:19 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:49:58 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static t_elem	*ft_manage_files(char **tab, t_elem *flist)
 			exit(1);
 		if (lstat(tab[i], &stat) <= 0)
 			get_infos(tab[i], tmp, stat);
-		if (tmp->perm[0] == 'd' && tmp->perm[1] == '-')
+		if (tmp->perm[0] == 'd' && (tmp->perm[1] == '-' || tmp->perm[4] == '-'))
 			ft_error_rights(tab[i]);
 		else if (read_param(tab[i]) == 0)
 			flist = info_in_list(flist, tab[i], tab[i]);
@@ -93,16 +93,15 @@ static void		ft_manage_rep(char **tab, t_elem *rlist, t_opt *opt, t_pad *pad)
 	sort_arg(rep_tab, opt);
 	while (rep_tab[i] != NULL)
 	{
-		rlist = ft_create_list(rlist, ft_add_slash(rep_tab[i]));
-		ft_repname(rep_tab[i], ft_count_tab(tab), opt);
-		if (opt->l == 1)
-			count_blocks(&rlist, opt);
-		ft_display_rep(rlist, opt, pad);
-		free_list(&rlist);
+		if (ft_check_perm(rep_tab[i]) == 0)
+		{
+			rlist = ft_create_list(rlist, ft_add_slash(rep_tab[i]));
+			ft_repname(rep_tab[i], ft_count_tab(tab), opt);
+			ft_display_rep(rlist, opt, pad);
+			free_list(&rlist);
+		}
 		i++;
 	}
-	if (rep_tab[0])
-		free_tab(rep_tab);
 }
 
 void			ft_list(char **tab, t_opt *opt)

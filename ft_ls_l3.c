@@ -6,7 +6,7 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 17:02:34 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 18:43:51 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:30:23 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ char		**arg_in_tab(int argc, char **argv)
 		exit(1);
 	while (i < argc)
 	{
-		if (argv[i][0] != '-')
+		if (!(ft_strcmp(argv[i], "-")))
+		{
+			tab[j] = ft_strdup(argv[i]);
+			j++;
+		}
+		else if (argv[i][0] != '-')
 		{
 			tab[j] = ft_strdup(argv[i]);
 			j++;
@@ -56,27 +61,6 @@ char		*ft_get_time(const long *f_time)
 	if (ft_strchr(new, '\n'))
 		(ft_strchr(new, '\n'))[0] = '\0';
 	return (new);
-}
-
-char		*ft_lastword(char *s)
-{
-	char	*ptr;
-	int		is_word;
-
-	ptr = NULL;
-	is_word = 0;
-	while (*s)
-	{
-		if (!ft_isspace(*s) && !is_word)
-		{
-			ptr = s;
-			is_word = 1;
-		}
-		else if (ft_isspace(*s))
-			is_word = 0;
-		++s;
-	}
-	return (ptr);
 }
 
 char		*remove_slash(char *name)

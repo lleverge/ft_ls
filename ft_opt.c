@@ -6,11 +6,29 @@
 /*   By: lleverge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 14:12:00 by lleverge          #+#    #+#             */
-/*   Updated: 2016/03/17 17:56:43 by lleverge         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:39:18 by lleverge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int		ft_check_perm(char *name)
+{
+	t_stat	stat;
+	t_elem	*tmp;
+
+	if (!(tmp = (t_elem *)malloc(sizeof(t_elem))))
+		exit(1);
+	if (lstat(name, &stat) <= 0)
+		get_infos(name, tmp, stat);
+	if (tmp->perm[0] == 'd' && (tmp->perm[1] == '-' || tmp->perm[4] == '-'))
+	{
+		ft_error_rights(name);
+		return (-1);
+	}
+	else
+		return (0);
+}
 
 void	ft_detect_opt(char *arg, t_opt *options)
 {
